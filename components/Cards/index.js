@@ -18,7 +18,7 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-function Lambda(headline, image, name) {
+function lambda(headline, image, name) {
     const card = document.createElement('div');
     const headline = document.createElement('div');
     const author = document.createElement('div');
@@ -31,7 +31,13 @@ function Lambda(headline, image, name) {
     author.classList.add("author");
     imageContainer.classList.add("img-container");
 
+    headline.appendchild('card');
+    imageContainer.appendChild('author')
+    image.appenchild('img-container')
 
+    let keys = object.keys(lambda);
+    let vals = object.values(lambda);
+    let entries = object.entries(lambda);
 
 
     axios
