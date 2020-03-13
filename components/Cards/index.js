@@ -39,16 +39,21 @@ function lambda(headline, image, name) {
     let vals = object.values(lambda);
     let entries = object.entries(lambda);
 
+    return;
+}
 
-    axios
-        .get(https: lambda - times - backend.herokuapp.com / articles)
-        .then(response => {
-                console.log(response)
-                response.articles.message.forEach(item =>
+console.log('entries', entries)
 
-                });
-            return newCard;
-        })
-.catch(error => {
-    console.log("data not returned")
-});
+
+
+//         axios.get('https:// lambda-times-backend.herokuapp.com/articles')
+//         .then(response => {
+//                 console.log(response)
+//                 response.articles.message.forEach(item =>
+
+//                 });
+//             return ;
+//         }
+// .catch(error => {
+//     console.log("data not returned")
+// });

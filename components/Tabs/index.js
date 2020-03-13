@@ -7,3 +7,23 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+
+
+let keys = object.keys(lambda);
+let vals = object.values(lambda);
+let entries = object.entries(lambda);
+
+
+axios
+    .get('https://lambda-times-backend.herokuapp.com/articles')
+    .then(response => {
+            console.log(response)
+            response.articles.message.forEach(item =>
+
+
+            });
+        return;
+    }
+    .catch(error => {
+        console.log("data not returned")
+    });
