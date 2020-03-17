@@ -18,7 +18,7 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-function lambda(headline) {
+function lambda(headline, authorPhoto, authorName) {
   const card = document.createElement("div");
   const headline = document.createElement("div");
   const author = document.createElement("div");
