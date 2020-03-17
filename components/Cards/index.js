@@ -18,42 +18,71 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-function lambda(headline, image, name) {
-    const card = document.createElement('div');
-    const headline = document.createElement('div');
-    const author = document.createElement('div');
-    const imageContainer = document.createElement('div');
-    const image = document.createElement('img');
-    const span = document.createElement('span');
+function lambda(headline) {
+  const card = document.createElement("div");
+  const headline = document.createElement("div");
+  const author = document.createElement("div");
+  const imageContainer = document.createElement("div");
+  const image = document.createElement("img");
+  const span = document.createElement("span");
 
-    card.classList.add("card");
-    headline.classList.add("headline");
-    author.classList.add("author");
-    imageContainer.classList.add("img-container");
+  card.classList.add("card");
+  headline.classList.add("headline");
+  author.classList.add("author");
+  imageContainer.classList.add("img-container");
 
-    headline.appendchild('card');
-    imageContainer.appendChild('author')
-    image.appenchild('img-container')
-
-    let keys = object.keys(lambda);
-    let vals = object.values(lambda);
-    let entries = object.entries(lambda);
-
-    return;
+  headline.appendchild("card");
+  imageContainer.appendChild("author");
+  image.appenchild("img-container");
 }
 
-console.log('entries', entries)
+//console.log("entries", entries);
 
+// let keys = Object.keys();
+// let vals = Object.values();
+// let entries = Object.entries();
 
+// function Card(imgUrl) {
+//     const
+//       newCard = document.createElement("div"),
+//       newImage = document.createElement("img"),
+//       breed = document.createElement("h3");
 
-//         axios.get('https:// lambda-times-backend.herokuapp.com/articles')
-//         .then(response => {
-//                 console.log(response)
-//                 response.articles.message.forEach(item =>
+//     breed.textContent = "Breed: Mastiff";
+//     newImage.src = imgUrl;
+//     newImage.classList.add("dog-image");
+//     newCard.classList.add("dog-card");
+//     newCard.appendChild(newImage);
+//     newCard.appendChild(breed);
 
-//                 });
-//             return ;
-//         }
-// .catch(error => {
-//     console.log("data not returned")
-// });
+//     // add this functionality later
+//     newCard.addEventListener("click", () => {
+//       newCard.classList.toggle("selected");
+//     });
+
+//     return newCard;
+//   }
+
+//const entryPoint = document.querySelector(".entry");
+
+axios
+  .get("https://lambda-times-backend.herokuapp.com/articles")
+  .then(response => {
+    let keys = Object.keys(response.data.articles);
+    let vals = Object.values(response.data.articles);
+    let entries = Object.entries(response.data.articles);
+
+    console.log("articles", response.data.articles);
+    //console.log("articles, object.keys", keys);
+    console.log("articles, object.values", vals);
+    vals.forEach(arrays => {
+      arrays.forEach(object => {
+        console.log("nested forEach, object", object);
+      });
+      console.log("forEach, arrays", arrays);
+    });
+    //console.log("articles, object.entries", entries);
+  })
+  .catch(error => {
+    console.log("data not returned");
+  });

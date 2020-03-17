@@ -8,22 +8,28 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
-
-let keys = object.keys(lambda);
-let vals = object.values(lambda);
-let entries = object.entries(lambda);
-
-
 axios
-    .get('https://lambda-times-backend.herokuapp.com/articles')
-    .then(response => {
-            console.log(response)
-            response.articles.message.forEach(item =>
+  .get("https://lambda-times-backend.herokuapp.com/topics")
+  .then(response => {
+    // console.log("topics", response.data.topics);
 
-
-            });
-        return;
-    }
-    .catch(error => {
-        console.log("data not returned")
+    response.data.topics.forEach(item => {
+      // console.log(item);
     });
+  })
+
+  .catch(error => {
+    console.log("data not returned", error.message);
+  });
+//   function DogCard(imgUrl) {
+//     const
+//       newCard = document.createElement("div"),
+//       newImage = document.createElement("img"),
+//       breed = document.createElement("h3");
+
+//     breed.textContent = "Breed: Mastiff";
+//     newImage.src = imgUrl;
+//     newImage.classList.add("dog-image");
+//     newCard.classList.add("dog-card");
+//     newCard.appendChild(newImage);
+//     newCard.appendChild(breed);
