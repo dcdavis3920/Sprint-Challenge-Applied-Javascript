@@ -18,7 +18,7 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-function lambda(headline, authorPhoto, authorName) {
+function lambda(input) {
   const card = document.createElement("div");
   const headline = document.createElement("div");
   const author = document.createElement("div");
@@ -26,44 +26,24 @@ function lambda(headline, authorPhoto, authorName) {
   const image = document.createElement("img");
   const span = document.createElement("span");
 
+  headline.textContent = input.headline;
+  span.textContent = input.authorName;
+  image.src = input.authorPhoto;
+
   card.classList.add("card");
   headline.classList.add("headline");
   author.classList.add("author");
   imageContainer.classList.add("img-container");
 
-  headline.appendchild("card");
-  imageContainer.appendChild("author");
-  image.appenchild("img-container");
+  card.appendChild(headline);
+  card.appendChild(author);
+  author.appendChild(imageContainer);
+  author.appendChild(span);
+  imageContainer.appendChild(image);
+  // image.appenChild();
+
+  return card;
 }
-
-//console.log("entries", entries);
-
-// let keys = Object.keys();
-// let vals = Object.values();
-// let entries = Object.entries();
-
-// function Card(imgUrl) {
-//     const
-//       newCard = document.createElement("div"),
-//       newImage = document.createElement("img"),
-//       breed = document.createElement("h3");
-
-//     breed.textContent = "Breed: Mastiff";
-//     newImage.src = imgUrl;
-//     newImage.classList.add("dog-image");
-//     newCard.classList.add("dog-card");
-//     newCard.appendChild(newImage);
-//     newCard.appendChild(breed);
-
-//     // add this functionality later
-//     newCard.addEventListener("click", () => {
-//       newCard.classList.toggle("selected");
-//     });
-
-//     return newCard;
-//   }
-
-//const entryPoint = document.querySelector(".entry");
 
 axios
   .get("https://lambda-times-backend.herokuapp.com/articles")
@@ -78,11 +58,12 @@ axios
     vals.forEach(arrays => {
       arrays.forEach(object => {
         console.log("nested forEach, object", object);
+        document.querySelector(".cards-container").appendChild(lambda(object));
       });
       console.log("forEach, arrays", arrays);
     });
     //console.log("articles, object.entries", entries);
   })
   .catch(error => {
-    console.log("data not returned");
+    console.log(error);
   });
