@@ -29,4 +29,4 @@ function Header() {
 
   return header;
 }
-document.querySelector(".header-container").appendChild();
+document.querySelector(".header-container").appendChild(Header());
