@@ -11,25 +11,13 @@
 axios
   .get("https://lambda-times-backend.herokuapp.com/topics")
   .then(response => {
-    // console.log("topics", response.data.topics);
+    console.log(topics, "topics");
 
     response.data.topics.forEach(item => {
-      // console.log(item);
+      console.log(item);
     });
   })
 
   .catch(error => {
     console.log("data not returned", error.message);
   });
-//   function DogCard(imgUrl) {
-//     const
-//       newCard = document.createElement("div"),
-//       newImage = document.createElement("img"),
-//       breed = document.createElement("h3");
-
-//     breed.textContent = "Breed: Mastiff";
-//     newImage.src = imgUrl;
-//     newImage.classList.add("dog-image");
-//     newCard.classList.add("dog-card");
-//     newCard.appendChild(newImage);
-//     newCard.appendChild(breed);
