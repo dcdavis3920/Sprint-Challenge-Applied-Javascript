@@ -40,14 +40,13 @@ function lambda(input) {
   author.appendChild(imageContainer);
   author.appendChild(span);
   imageContainer.appendChild(image);
-  // image.appenChild();
 
   return card;
 }
 
 axios
   .get("https://lambda-times-backend.herokuapp.com/articles")
-  .then(response => {
+  .then((response) => {
     let keys = Object.keys(response.data.articles);
     let vals = Object.values(response.data.articles);
     let entries = Object.entries(response.data.articles);
@@ -55,8 +54,8 @@ axios
     console.log("articles", response.data.articles);
     //console.log("articles, object.keys", keys);
     console.log("articles, object.values", vals);
-    vals.forEach(arrays => {
-      arrays.forEach(object => {
+    vals.forEach((arrays) => {
+      arrays.forEach((object) => {
         console.log("nested forEach, object", object);
         document.querySelector(".cards-container").appendChild(lambda(object));
       });
@@ -64,6 +63,6 @@ axios
     });
     //console.log("articles, object.entries", entries);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
